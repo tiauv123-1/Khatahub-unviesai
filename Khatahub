@@ -1,0 +1,97 @@
+
+local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
+
+-- Tạo một cửa sổ UI duy nhất cho tất cả game
+local Window = Rayfield:CreateWindow({
+    Name = "Khata Hub",
+    LoadingTitle = "Khata Hub Loading...",
+    LoadingSubtitle = "Loading...",
+    KeySystem = false
+})
+
+--// Khi vào game Prison Life
+if game.PlaceId == 155615604 then
+    local PrisonLifeTab = Window:CreateTab("Prison Life", 4483362458)
+
+    -- Button để lấy vũ khí M9
+    PrisonLifeTab:CreateButton({
+        Name = "Give M9",
+        Callback = function()
+            game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+        end
+    })
+
+    -- Button để lấy vũ khí Remington 870
+    PrisonLifeTab:CreateButton({
+        Name = "Give Remington",
+        Callback = function()
+            game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+        end
+    })
+
+    -- Button để mở tù và chạy tự động
+    PrisonLifeTab:CreateButton({
+        Name = "Auto Escape",
+        Callback = function()
+            -- Di chuyển ra ngoài bằng cách tìm cửa thoát
+            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1950, 20, -50))  -- Cửa thoát tù
+        end
+    })
+
+    -- Button để tự động nhận tiền (cho việc làm nhiệm vụ)
+    PrisonLifeTab:CreateButton({
+        Name = "Auto Cash",
+        Callback = function()
+            -- Tự động lấy tiền mỗi khi đi qua địa điểm có tiền
+            -- Bạn có thể thêm các điểm nhận tiền nếu có
+            -- Ví dụ:
+            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1600, 20, -500))  -- Vị trí có tiền
+        end
+    })
+
+    -- Button để gọi hỗ trợ (như gọi cảnh sát nếu bị bắt)
+    PrisonLifeTab:CreateButton({
+        Name = "Call for Help",
+        Callback = function()
+            game.ReplicatedStorage.Remotes.CallHelp:FireServer()
+        end
+    })
+
+    -- Button để nhặt tất cả vật phẩm trong game
+    PrisonLifeTab:CreateButton({
+        Name = "Pick Up All Items",
+        Callback = function()
+            -- Nhặt tất cả vật phẩm có thể nhận
+            for _, item in pairs(workspace.Prison_ITEMS.giver:GetChildren()) do
+                if item:IsA("Model") then
+                    game.Workspace.Remote.ItemHandler:InvokeServer(item.ITEMPICKUP)
+                end
+            end
+        end
+    })
+
+end
+
+--// Thêm game Build A Boat for Treasure
+if game.PlaceId == 537413528 then
+    local BuildABoatTab = Window:CreateTab("Build A Boat", 4483362458)
+
+    BuildABoatTab:CreateButton({
+        Name = "Auto Win (Teleport to end)",
+        Callback = function()
+            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(9500, 300, -20))
+        end
+    })
+
+    BuildABoatTab:CreateButton({
+        Name = "Teleport to Boat Spawn",
+        Callback = function()
+            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(100, 10, -100))
+        end
+    })
+
+    -- Các tính năng khác của game Build A Boat sẽ thêm ở đây
+end
+
+--// Thêm game khác vào đây
+-- Ví dụ: Blox Fruits, Arsenal...

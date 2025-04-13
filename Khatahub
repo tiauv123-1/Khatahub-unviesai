@@ -93,5 +93,47 @@ if game.PlaceId == 537413528 then
     -- Các tính năng khác của game Build A Boat sẽ thêm ở đây
 end
 
---// Thêm game khác vào đây
--- Ví dụ: Blox Fruits, Arsenal...
+if game.PlaceId == 5377006669 then
+local Lengendofspeedtab = window:CreateTab("legend of speed",4483362458)
+
+LeGendOfSpeedTab:CreateButton({
+        Name = "kill aura",
+        Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local mouse = player:GetMouse()
+local range = 20  -- Khoảng cách tấn công (có thể điều chỉnh)
+
+-- Hàm kiểm tra và tấn công đối tượng
+local function killAura()
+    -- Lặp lại liên tục
+    while wait(0.1) do
+        local closestTarget = nil
+        local closestDistance = range
+
+        -- Tìm kiếm người chơi trong phạm vi
+        for _, targetPlayer in pairs(game.Players:GetPlayers()) do
+            if targetPlayer ~= player then
+                local targetCharacter = targetPlayer.Character
+                if targetCharacter and targetCharacter:FindFirstChild("Humanoid") then
+                    local targetHumanoid = targetCharacter:FindFirstChild("Humanoid")
+                    local distance = (targetCharacter.PrimaryPart.Position - character.PrimaryPart.Position).Magnitude
+
+                    -- Kiểm tra nếu người chơi ở gần và trong phạm vi
+                    if distance <= closestDistance then
+                        closestDistance = distance
+                        closestTarget = targetHumanoid
+                    end
+                end
+            end
+        end
+
+        -- Tấn công đối tượng gần nhất
+        if closestTarget then
+            closestTarget:TakeDamage(10)  -- Số sát thương có thể thay đổi
+        end
+    end
+end
+
+-- Bắt đầu Kill Aura khi người chơi vào game
+killAura()

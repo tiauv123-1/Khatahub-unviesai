@@ -1,139 +1,169 @@
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua")))()
 
-local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
-
--- Tạo một cửa sổ UI duy nhất cho tất cả game
-local Window = Rayfield:CreateWindow({
-    Name = "Khata Hub",
-    LoadingTitle = "Khata Hub Loading...",
-    LoadingSubtitle = "Loading...",
-    KeySystem = false
+local Window = MakeWindow({
+    Hub = {
+        Title = "khata hub",
+        Animation = "khata"
+    },
+    Key = {
+        KeySystem = false,
+        Title = "Key System",
+        Description = "",
+        KeyLink = "key=khata",
+        Keys = {"khata"},
+        Notifi = {
+            Notifications = true,
+            CorrectKey = "Running the Script...",
+            Incorrectkey = "The key is incorrect",
+            CopyKeyLink = "Copied to Clipboard"
+        }
+    }
 })
 
---// Khi vào game Prison Life
-if game.PlaceId == 155615604 then
-    local PrisonLifeTab = Window:CreateTab("Prison Life", 4483362458)
+MinimizeButton({
+    Image = "http://www.roblox.com/asset/?id=115020923573313",
+    Size = {60, 60},
+    Color = Color3.fromRGB(10, 10, 10),
+    Corner = true,
+    Stroke = false,
+    StrokeColor = Color3.fromRGB(255, 0, 0)
+})
 
-    -- Button để lấy vũ khí M9
-    PrisonLifeTab:CreateButton({
-        Name = "Give M9",
-        Callback = function()
-            game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-        end
-    })
+local Tab1o = MakeTab({Name = "blox fruits"})
+local Tab2o = MakeTab({Name = "blue lock ravils"})
+local Tab3o = MakeTab({Name = "unversal"})
+local Tab4o = MakeTab({Name = "fling thing peole"})
 
-    -- Button để lấy vũ khí Remington 870
-    PrisonLifeTab:CreateButton({
-        Name = "Give Remington",
-        Callback = function()
-            game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-        end
-    })
-
-    -- Button để mở tù và chạy tự động
-    PrisonLifeTab:CreateButton({
-        Name = "Auto Escape",
-        Callback = function()
-            -- Di chuyển ra ngoài bằng cách tìm cửa thoát
-            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1950, 20, -50))  -- Cửa thoát tù
-        end
-    })
-
-    -- Button để tự động nhận tiền (cho việc làm nhiệm vụ)
-    PrisonLifeTab:CreateButton({
-        Name = "Auto Cash",
-        Callback = function()
-            -- Tự động lấy tiền mỗi khi đi qua địa điểm có tiền
-            -- Bạn có thể thêm các điểm nhận tiền nếu có
-            -- Ví dụ:
-            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(1600, 20, -500))  -- Vị trí có tiền
-        end
-    })
-
-    -- Button để gọi hỗ trợ (như gọi cảnh sát nếu bị bắt)
-    PrisonLifeTab:CreateButton({
-        Name = "Call for Help",
-        Callback = function()
-            game.ReplicatedStorage.Remotes.CallHelp:FireServer()
-        end
-    })
-
-    -- Button để nhặt tất cả vật phẩm trong game
-    PrisonLifeTab:CreateButton({
-        Name = "Pick Up All Items",
-        Callback = function()
-            -- Nhặt tất cả vật phẩm có thể nhận
-            for _, item in pairs(workspace.Prison_ITEMS.giver:GetChildren()) do
-                if item:IsA("Model") then
-                    game.Workspace.Remote.ItemHandler:InvokeServer(item.ITEMPICKUP)
-                end
-            end
-        end
-    })
-
-end
-
---// Thêm game Build A Boat for Treasure
-if game.PlaceId == 537413528 then
-    local BuildABoatTab = Window:CreateTab("Build A Boat", 4483362458)
-
-    BuildABoatTab:CreateButton({
-        Name = "Auto Win (Teleport to end)",
-        Callback = function()
-            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(9500, 300, -20))
-        end
-    })
-
-    BuildABoatTab:CreateButton({
-        Name = "Teleport to Boat Spawn",
-        Callback = function()
-            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(100, 10, -100))
-        end
-    })
-
-    -- Các tính năng khác của game Build A Boat sẽ thêm ở đây
-end
-
-if game.PlaceId == 5377006669 then
-local Lengendofspeedtab = window:CreateTab("legend of speed",4483362458)
-
-LeGendOfSpeedTab:CreateButton({
-        Name = "kill aura",
-        Callback = function()
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local mouse = player:GetMouse()
-local range = 20  -- Khoảng cách tấn công (có thể điều chỉnh)
-
--- Hàm kiểm tra và tấn công đối tượng
-local function killAura()
-    -- Lặp lại liên tục
-    while wait(0.1) do
-        local closestTarget = nil
-        local closestDistance = range
-
-        -- Tìm kiếm người chơi trong phạm vi
-        for _, targetPlayer in pairs(game.Players:GetPlayers()) do
-            if targetPlayer ~= player then
-                local targetCharacter = targetPlayer.Character
-                if targetCharacter and targetCharacter:FindFirstChild("Humanoid") then
-                    local targetHumanoid = targetCharacter:FindFirstChild("Humanoid")
-                    local distance = (targetCharacter.PrimaryPart.Position - character.PrimaryPart.Position).Magnitude
-
-                    -- Kiểm tra nếu người chơi ở gần và trong phạm vi
-                    if distance <= closestDistance then
-                        closestDistance = distance
-                        closestTarget = targetHumanoid
-                    end
-                end
-            end
-        end
-
-        -- Tấn công đối tượng gần nhất
-        if closestTarget then
-            closestTarget:TakeDamage(10)  -- Số sát thương có thể thay đổi
-        end
+-- Tab 1: Blox Fruits
+AddButton(Tab1o, {
+    Name = "Redz Hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))(Settings)
     end
-end
+})
 
--- Bắt đầu Kill Aura khi người chơi vào game
-killAura()
+AddButton(Tab1o, {
+    Name = "xhub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Sta1kerH1ck-/refs/heads/main/Dead%20Rails%20SpiderXHub.txt"))(Settings)
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "speed hub",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Blox%20Fruit.lua"))(Settings)
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "BloxFruit Hub (No Key)",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/zeu1234/zeu1234/main/BloxFruitFree.lua"))()
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "RO Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RO-HUB-CODEX/RO-HUB/refs/heads/main/bloxfruits.lua"))()
+    end
+})
+
+-- Tab 2: Blue Lock Rivals
+AddButton(Tab2o, {
+    Name = "tbao hub",
+    Callback = function()
+        local Setting = {
+            AutoGoal = true,
+            AutoDefend = false,
+            PowerShot = true,
+            SilentAim = true,
+            ESP = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/refs/heads/main/TbaoHubBlueLockRivals"))(Setting)
+    end
+})
+
+AddButton(Tab2o, {
+    Name = "Hitbox",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bhusant/Pillar-chase/refs/heads/main/KeySystem"))()
+    end
+})
+
+-- Tab 3: Universal Tools
+AddButton(Tab3o, {
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/refs/heads/master/source"))()
+    end
+})
+
+AddButton(Tab3o, {
+    Name = "Dark Dex Explorer",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/DarkDex/master/Init.lua", true))()
+    end
+})
+
+AddButton(Tab3o, {
+    Name = "Remote Spy",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/refs/heads/master/SimpleSpy.lua"))()
+    end
+})
+
+AddButton(Tab3o, {
+    Name = "Simple Spy V3",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyV3.lua"))()
+    end
+})
+
+AddButton(Tab3o, {
+    Name = "Nameless Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/refs/heads/main/Source"))()
+    end
+})
+
+AddButton(Tab4o, {
+    Name = "VHS Auto Fling",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Fling-Things-and-People-FTAP-VHS-15769"))()
+    end
+})
+
+AddButton(Tab4o, {
+    Name = "Ninja Hub (Fling)",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/biel99lol/My-scripts/refs/heads/main/Ninja%20hub%20(FTAP)%20update", true))()
+    end
+})
+
+AddButton(Tab4o, {
+    Name = "OP Fling V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/NrqrZ9VX"))()
+    end
+})
+
+AddButton(Tab4o, {
+    Name = "Fling GUI chọn người",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/pQ08sEBn"))()
+    end
+})

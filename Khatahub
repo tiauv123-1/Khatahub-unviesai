@@ -1,4 +1,4 @@
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua")))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/main/UiREDzV2.lua"))()
 
 local Window = MakeWindow({
     Hub = {
@@ -8,9 +8,9 @@ local Window = MakeWindow({
     Key = {
         KeySystem = false,
         Title = "Key System",
-        Description = "",
-        KeyLink = "key=khata",
-        Keys = {"khata"},
+        Description = "1+1+2×2+6+4=key",
+        KeyLink = "",
+        Keys = {"16"},
         Notifi = {
             Notifications = true,
             CorrectKey = "Running the Script...",
@@ -29,62 +29,66 @@ MinimizeButton({
     StrokeColor = Color3.fromRGB(255, 0, 0)
 })
 
-local Tab1o = MakeTab({Name = "blox fruits"})
-local Tab2o = MakeTab({Name = "blue lock ravils"})
-local Tab3o = MakeTab({Name = "unversal"})
-local Tab4o = MakeTab({Name = "fling thing peole"})
+-- Tabs
+local Tab1o = MakeTab({Name = "script của mik"})
+local Tab2o = MakeTab({Name = "Blox Fruits"})
+local Tab3o = MakeTab({Name = "Blue Lock Rivals"})
+local Tab4o = MakeTab({Name = "Universal Tools"})
+local Tab5o = MakeTab({Name = "Fling Things People"})
+local Tab6o = MakeTab({Name = "IQ Admin Obby"})
+local Tab7o = MakeTab({Name = "Prison Life"})
+local Tab8o = MakeTab({Name = "underground war2.0"})
+local Tab9o = MakeTab({Name = "build a boat for cheat"})
 
--- Tab 1: Blox Fruits
-AddButton(Tab1o, {
+-- Tab 1
+AddButton(Tab2o, {
     Name = "Redz Hub",
     Callback = function()
-        local Settings = {
-            JoinTeam = "Pirates",
-            Translator = true
-        }
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))(Settings)
+        local Settings = {JoinTeam = "Pirates", Translator = true}
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
     end
 })
 
-AddButton(Tab1o, {
+AddButton(Tab2o, {
     Name = "xhub",
     Callback = function()
-        local Settings = {
-            JoinTeam = "Pirates",
-            Translator = true
-        }
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Sta1kerH1ck-/refs/heads/main/Dead%20Rails%20SpiderXHub.txt"))(Settings)
+        local Settings = {JoinTeam = "Pirates", Translator = true}
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Sta1kerH1ck-/main/Dead%20Rails%20SpiderXHub.txt"))(Settings)
     end
 })
 
-AddButton(Tab1o, {
-    Name = "speed hub",
+AddButton(Tab2o, {
+    Name = "Speed Hub",
     Callback = function()
-        local Settings = {
-            JoinTeam = "Pirates",
-            Translator = true
-        }
+        local Settings = {JoinTeam = "Pirates", Translator = true}
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Blox%20Fruit.lua"))(Settings)
     end
 })
 
-AddButton(Tab1o, {
+AddButton(Tab2o, {
     Name = "BloxFruit Hub (No Key)",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zeu1234/zeu1234/main/BloxFruitFree.lua"))()
     end
 })
 
-AddButton(Tab1o, {
+AddButton(Tab2o, {
     Name = "RO Hub",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/RO-HUB-CODEX/RO-HUB/refs/heads/main/bloxfruits.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RO-HUB-CODEX/RO-HUB/main/bloxfruits.lua"))()
     end
 })
 
--- Tab 2: Blue Lock Rivals
 AddButton(Tab2o, {
-    Name = "tbao hub",
+    Name = "MTriet Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Minhtriettt/Free-Script/main/MTriet-Hub.lua"))()
+    end
+})
+
+-- Tab 2
+AddButton(Tab3o, {
+    Name = "Tbao Hub",
     Callback = function()
         local Setting = {
             AutoGoal = true,
@@ -93,77 +97,131 @@ AddButton(Tab2o, {
             SilentAim = true,
             ESP = true
         }
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/refs/heads/main/TbaoHubBlueLockRivals"))(Setting)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/main/TbaoHubBlueLockRivals"))(Setting)
     end
 })
 
-AddButton(Tab2o, {
+AddButton(Tab3o, {
     Name = "Hitbox",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bhusant/Pillar-chase/refs/heads/main/KeySystem"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bhusant/Pillar-chase/main/KeySystem"))()
     end
 })
 
--- Tab 3: Universal Tools
-AddButton(Tab3o, {
+-- Tab 3
+AddButton(Tab4o, {
     Name = "Infinite Yield",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/refs/heads/master/source"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end
 })
 
-AddButton(Tab3o, {
+AddButton(Tab4o, {
     Name = "Dark Dex Explorer",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/DarkDex/master/Init.lua", true))()
     end
 })
 
-AddButton(Tab3o, {
+AddButton(Tab4o, {
     Name = "Remote Spy",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/refs/heads/master/SimpleSpy.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))()
     end
 })
 
-AddButton(Tab3o, {
+AddButton(Tab4o, {
     Name = "Simple Spy V3",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyV3.lua"))()
     end
 })
 
-AddButton(Tab3o, {
+AddButton(Tab4o, {
     Name = "Nameless Admin",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/refs/heads/main/Source"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
     end
 })
 
-AddButton(Tab4o, {
+-- Tab 4
+AddButton(Tab5o, {
     Name = "VHS Auto Fling",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Fling-Things-and-People-FTAP-VHS-15769"))()
     end
 })
 
-AddButton(Tab4o, {
+AddButton(Tab5o, {
     Name = "Ninja Hub (Fling)",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/biel99lol/My-scripts/refs/heads/main/Ninja%20hub%20(FTAP)%20update", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/biel99lol/My-scripts/main/Ninja%20hub%20(FTAP)%20update", true))()
     end
 })
 
-AddButton(Tab4o, {
+AddButton(Tab5o, {
     Name = "OP Fling V2",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/NrqrZ9VX"))()
     end
 })
 
-AddButton(Tab4o, {
-    Name = "Fling GUI chọn người",
+AddButton(Tab5o, {
+    Name = "Fling GUI Chọn Người",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/pQ08sEBn"))()
+    end
+})
+
+-- Tab 5
+-- Hiện tại bạn chưa thêm nút nào cho tab IQ Admin Obby (Tab5o), nếu cần thì nói mình thêm
+
+-- Tab 6
+AddButton(Tab7o, {
+    Name = "Tiger Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tiauv123-1/Tigeradmin/main/Robloxvng"))()
+    end
+})
+
+AddButton(Tab8o, {
+    Name = "hitbox sword",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-HttpSpy/Random-Silly-stuff/refs/heads/main/UW2-Panel.lua"))()
+    end
+})
+
+AddButton(Tab9o, {
+    Name = "BABFT",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/TheRealAsu/BABFT/refs/heads/main/Loader.lua'))()
+    end
+})
+
+AddButton(Tab4o, {
+    Name = "skibidi hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/aemos2/Skibidihub/refs/heads/main/SkibidiHUB.txt"))()
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "fly",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tiauv123-1/Fly-v3/refs/heads/main/Khata%20fly"))()
+    end
+})
+
+AddButton(Tab2o, {
+    Name = "khata hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tiauv123-1/Khatahubbloxfruitsdz/refs/heads/main/Khatahub"))()
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "khata hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tiauv123-1/Khatahubbloxfruitsdz/refs/heads/main/Khatahub"))()
     end
 })
